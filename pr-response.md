@@ -16,7 +16,9 @@ I wrote a test case that attempts to add the same film twice to the watchlist an
 
 ## Comment 3 — Missing test
 **What I did:**
+Added the test for a adding an invalid film to the watchlist 
 **How I verified:**
+Ran the test and confirmed that it raises a FilmNotFoundError when trying to add a film that does not exist in the database.
 
 ## Comment 4 — Default visibility
 **My position:**
