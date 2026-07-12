@@ -10,7 +10,9 @@ After the changes, I ran the flask api and tested the endpoint to ensure that it
 
 ## Comment 2 — Deduplication
 **What I did:**
+I added logic to check if a film is already in the watchlist before adding it.
 **How I verified:**
+I wrote a test case that attempts to add the same film twice to the watchlist and verified that it raises an AlreadyInWatchlistError.
 
 ## Comment 3 — Missing test
 **What I did:**

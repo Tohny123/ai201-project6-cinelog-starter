@@ -6,8 +6,11 @@ Business logic for the watchlist feature.
 
 from app import db
 from models import Film, WatchlistEntry
-from services.collection_service import FilmNotFoundError
+from services.collection_service import FilmNotFoundError, NotInCollectionError
 
+class AlreadyInWatchlistError(Exception):
+    """Raised when a film is already in the user's watchlist."""
+    pass
 
 def add_to_watchlist(user_id, film_id):
     """
@@ -26,6 +29,12 @@ def add_to_watchlist(user_id, film_id):
     film = db.session.get(Film, film_id)
     if film is None:
         raise FilmNotFoundError(f"No film found with id '{film_id}'")
+
+    #Added code 
+    query = WatchlistEntry.query.filter_by(user_id=user_id, film_id=film_id).first()
+    if query is not None:
+        #Duplicate film found
+        raise AlreadyInWatchlistError(f"Film with id '{film_id}' is already in the watchlist.")
 
     entry = WatchlistEntry(user_id=user_id, film_id=film_id)
     db.session.add(entry)

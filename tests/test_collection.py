@@ -8,7 +8,7 @@ before writing your own tests for the watchlist feature (see Comment 4).
 
 import pytest
 from app import create_app, db
-from models import User, Film, CollectionEntry
+from models import User, Film, CollectionEntry, WatchlistEntry
 from services.collection_service import (
     add_to_collection,
     remove_from_collection,
@@ -17,6 +17,7 @@ from services.collection_service import (
     AlreadyInCollectionError,
     NotInCollectionError,
 )
+from services.watchlist_service import AlreadyInWatchlistError, add_to_watchlist
 
 
 @pytest.fixture
@@ -137,3 +138,24 @@ def test_get_collection_returns_newest_first(app, sample_user):
         # Blade Runner was added later, so it should come first
         assert titles[0] == "Blade Runner"
         assert titles[1] == "Alien"
+
+
+# -- adding to watchlist ------
+
+def test_add_to_watchlist_duplicate_raises(app, sample_user, sample_film):
+    """
+    Adding the same film twice should raise AlreadyInWatchlistError,
+    not silently create a duplicate entry.
+    """
+    with app.app_context():
+        add_to_watchlist(user_id=sample_user, film_id=sample_film)
+
+        with pytest.raises(AlreadyInWatchlistError):
+            add_to_watchlist(user_id=sample_user, film_id=sample_film)
+
+        # Confirm only one entry exists
+        count = WatchlistEntry.query.filter_by(
+            user_id=sample_user, film_id=sample_film
+        ).count()
+        assert count == 1
+
