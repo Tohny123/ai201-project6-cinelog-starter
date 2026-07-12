@@ -6,6 +6,7 @@
 **What I did:**
 I renamed save_to_watchlist to add_to_watchlist using the "rename symbol" feature in VS Code 
 **How I verified:**
+After the changes, I ran the flask api and tested the endpoint to ensure that it still worked as expected.
 
 ## Comment 2 — Deduplication
 **What I did:**
