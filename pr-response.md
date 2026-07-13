@@ -30,8 +30,12 @@ Some users might not want their watched movies to be public, and there will be e
 
 ## Comment 5 — Sort order
 **My position:**
+I am okay with your suggestion to sort the watchlist by date added instead of title.
 **Reasoning:**
+This makes sense because users might want to see the most recently added films first, and it is more intuitive to sort by date added for a watchlist feature.
 **Engagement with reviewer's point:**
+I agree with your reasoning that most users want to see what they added recently, so I think its good to keep the sorting like this from now on. 
+
 
 ## Comment 6 — Rebase
 **What conflicted:**
