@@ -1,6 +1,9 @@
 # PR Response Doc — CineLog Watchlist Feature
+Logs are shown in ``logs.png``
+
 
 ## AI Usage
+I used VS Codes Autocomplete feature to help rewrite some code in watchlist_service.py as well as helping me to write some of the text in this document.
 
 ## Comment 1 — Rename
 **What I did:**
@@ -48,3 +51,16 @@ I ran the API and tests to see if they were working, and I also checked the hist
 
 ## PR Description
 <!-- Written at the end — feature overview, design decisions, manual testing steps -->
+**Added Watchlist Feature**
+
+This watchlist keeps track of all of the films that a user has added to their watchlist. 
+The watchlist is public by default, but users can change the visibility to private if they wish. 
+The watchlist is sorted by date added, with the most recently added films appearing first.
+
+To test the features, run ``pytest`` to automatically run all of the tests
+
+#### The open endpoints for the watchlist feature are as follows:
+``/watchlist/<user_id>`` - GET - returns the watchlist for the user with the given user_id
+``/watchlist/<user_id>/add`` - POST - adds a film to the watchlist for the user with the given user_id
+
+Manually test the endpoints by running the flask api and using a tool like Curl to send requests to the endpoints.
