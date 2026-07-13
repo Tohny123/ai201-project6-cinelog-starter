@@ -39,8 +39,12 @@ I agree with your reasoning that most users want to see what they added recently
 
 ## Comment 6 — Rebase
 **What conflicted:**
+The .gitignore file and models.py were conflicting with each other
 **How I resolved it:**
+I kept my changes on the gitignore, since my new gitignore includes all of the ignored files from the previous gitignore
+I added the functions from my new branch into models.py whilst keeping the refactored functions from the main branch, so that the models.py file has the models for the watchlist as well as the refactored film model functions.
 **How I verified no conflict remains:**
+I ran the API and tests to see if they were working, and I also checked the history of the files to ensure that the changes were merged correctly and that there were no remaining conflicts.
 
 ## PR Description
 <!-- Written at the end — feature overview, design decisions, manual testing steps -->
