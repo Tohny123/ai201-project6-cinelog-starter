@@ -22,8 +22,11 @@ Ran the test and confirmed that it raises a FilmNotFoundError when trying to add
 
 ## Comment 4 — Default visibility
 **My position:**
+I feel like we should keep the default visibility of the watchlist to public
 **Reasoning:**
+This is because the watchlist is meant to be a social feature, and this application is supposed to be a public sharing platform, so users likely want to share what they have watched with others. 
 **Tradeoff acknowledged:**
+Some users might not want their watched movies to be public, and there will be extra steps for those users to change the visibility to private.
 
 ## Comment 5 — Sort order
 **My position:**

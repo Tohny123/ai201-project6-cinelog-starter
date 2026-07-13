@@ -78,6 +78,7 @@ class WatchlistEntry(db.Model):
     film_id = db.Column(db.Integer, db.ForeignKey("film.id"), nullable=False)
     date_added = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
     public = db.Column(db.Boolean, default=True)
+    #We want watchlists to be public because we are presuming that users want to share what they have watched with others
 
     def to_dict(self):
         return {
